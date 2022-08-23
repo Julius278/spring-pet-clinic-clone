@@ -21,10 +21,6 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-	<dependencies>
-
-
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -40,7 +36,21 @@
 					</excludes>
 				</configuration>
 			</plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<goals>install</goals>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<scm>
+		<developerConnection>scm:git:git@github.com:Julius278/spring-pet-clinic-clone.git</developerConnection>
+	</scm>
 
 </project>
