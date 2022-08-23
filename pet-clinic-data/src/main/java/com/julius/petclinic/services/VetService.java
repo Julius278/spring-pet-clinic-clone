@@ -8,7 +8,7 @@ public interface VetService {
 
     Vet findByLastName(String lastName);
 
-    Vet findbyId(Long id);
+    Vet findById(Long id);
 
     Vet save(Vet vet);
 

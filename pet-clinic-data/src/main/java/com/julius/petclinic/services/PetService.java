@@ -8,7 +8,7 @@ public interface PetService {
 
     //Pet findByOwnerId(Long ownerId);
 
-    Pet findbyId(Long id);
+    Pet findById(Long id);
 
     Pet save(Pet pet);
 
