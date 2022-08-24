@@ -1,6 +1,5 @@
 package com.julius.petclinic.services.map;
 
-import com.julius.petclinic.model.Owner;
 import com.julius.petclinic.model.Pet;
 import com.julius.petclinic.services.CrudService;
 import org.springframework.stereotype.Service;
