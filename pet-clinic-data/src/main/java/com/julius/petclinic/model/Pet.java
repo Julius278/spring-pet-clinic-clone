@@ -27,4 +27,9 @@ public class Pet extends BaseEntity {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	@Override
+	public String toString(){
+		return "[Pet: {"+"id: "+getId() +", petType: "+getPetType()+", Owner: "+getOwner().toString()+", Birthdate: "+getBirthDate()+"}]";
+	}
 }
