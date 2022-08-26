@@ -49,6 +49,12 @@ public class DataLoader implements CommandLineRunner {
         o1.setId(new Long(123));
         ownerMapService.save(o1);
 
+        Owner o2 = new Owner();
+        o2.setFirstName("Hans");
+        o2.setLastName("Wurst");
+        o2.setId(new Long(124));
+        ownerMapService.save(o2);
+
         Pet p1 = new Pet();
         p1.setPetType(pt1);
         p1.setOwner(o1);
