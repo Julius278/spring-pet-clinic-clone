@@ -7,9 +7,6 @@ import com.julius.petclinic.model.Vet;
 import com.julius.petclinic.services.OwnerService;
 import com.julius.petclinic.services.PetService;
 import com.julius.petclinic.services.VetService;
-import com.julius.petclinic.services.map.OwnerMapService;
-import com.julius.petclinic.services.map.PetMapService;
-import com.julius.petclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
