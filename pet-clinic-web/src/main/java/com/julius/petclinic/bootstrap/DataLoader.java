@@ -22,10 +22,10 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
 
-    public DataLoader(VetMapService vetMapService, PetMapService petMapService, OwnerMapService ownerMapService){
-        this.vetService = vetMapService;
-        this.petService = petMapService;
-        this.ownerService = ownerMapService;
+    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService){
+        this.vetService = vetService;
+        this.petService = petService;
+        this.ownerService = ownerService;
     }
 
     @Override
