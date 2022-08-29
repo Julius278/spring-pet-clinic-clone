@@ -4,6 +4,9 @@ import com.julius.petclinic.model.Owner;
 import com.julius.petclinic.model.Pet;
 import com.julius.petclinic.model.PetType;
 import com.julius.petclinic.model.Vet;
+import com.julius.petclinic.services.OwnerService;
+import com.julius.petclinic.services.PetService;
+import com.julius.petclinic.services.VetService;
 import com.julius.petclinic.services.map.OwnerMapService;
 import com.julius.petclinic.services.map.PetMapService;
 import com.julius.petclinic.services.map.VetMapService;
@@ -13,16 +16,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final VetMapService vetMapService;
+    private final VetService vetService;
 
-    private final PetMapService petMapService;
+    private final PetService petService;
 
-    private final OwnerMapService ownerMapService;
+    private final OwnerService ownerService;
 
     public DataLoader(VetMapService vetMapService, PetMapService petMapService, OwnerMapService ownerMapService){
-        this.vetMapService = vetMapService;
-        this.petMapService = petMapService;
-        this.ownerMapService = ownerMapService;
+        this.vetService = vetMapService;
+        this.petService = petMapService;
+        this.ownerService = ownerMapService;
     }
 
     @Override
@@ -47,25 +50,25 @@ public class DataLoader implements CommandLineRunner {
         o1.setFirstName("Marge");
         o1.setLastName("Simpson");
         o1.setId(new Long(123));
-        ownerMapService.save(o1);
+        ownerService.save(o1);
 
         Owner o2 = new Owner();
         o2.setFirstName("Hans");
         o2.setLastName("Wurst");
         o2.setId(new Long(124));
-        ownerMapService.save(o2);
+        ownerService.save(o2);
 
         Pet p1 = new Pet();
         p1.setPetType(pt1);
         p1.setOwner(o1);
         p1.setId(new Long(124));
-        petMapService.save(p1);
+        petService.save(p1);
 
         Pet p2 = new Pet();
         p2.setPetType(pt2);
         p2.setOwner(o1);
         p2.setId(new Long(125));
-        petMapService.save(p2);
+        petService.save(p2);
 
     }
 
@@ -74,25 +77,25 @@ public class DataLoader implements CommandLineRunner {
         v1.setFirstName("Peter");
         v1.setLastName("Griffin");
         v1.setId(new Long(111));
-        vetMapService.save(v1);
+        vetService.save(v1);
 
         Vet v2 = new Vet();
         v2.setFirstName("Homer");
         v2.setLastName("Simpson");
         v2.setId(new Long(222));
-        vetMapService.save(v2);
+        vetService.save(v2);
     }
 
     private void printAllData(){
-        for (Vet ve:vetMapService.findAll()) {
+        for (Vet ve:vetService.findAll()) {
             System.out.println(ve.toString());
         }
 
-        for (Pet p:petMapService.findAll()) {
+        for (Pet p:petService.findAll()) {
             System.out.println(p.toString());
         }
 
-        for (Owner o:ownerMapService.findAll()) {
+        for (Owner o:ownerService.findAll()) {
             System.out.println(o.toString());
         }
     }
