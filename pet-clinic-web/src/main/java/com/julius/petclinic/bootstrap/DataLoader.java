@@ -36,35 +36,29 @@ public class DataLoader implements CommandLineRunner {
     private void bootstrapPets(){
         PetType pt1 = new PetType();
         pt1.setName("Streuner");
-        pt1.setId(new Long(345));
 
         PetType pt2 = new PetType();
         pt2.setName("Dachs");
-        pt2.setId(new Long(346));
 
 
         Owner o1 = new Owner();
         o1.setFirstName("Marge");
         o1.setLastName("Simpson");
-        o1.setId(new Long(123));
         ownerService.save(o1);
 
         Owner o2 = new Owner();
         o2.setFirstName("Hans");
         o2.setLastName("Wurst");
-        o2.setId(new Long(124));
         ownerService.save(o2);
 
         Pet p1 = new Pet();
         p1.setPetType(pt1);
         p1.setOwner(o1);
-        p1.setId(new Long(124));
         petService.save(p1);
 
         Pet p2 = new Pet();
         p2.setPetType(pt2);
         p2.setOwner(o1);
-        p2.setId(new Long(125));
         petService.save(p2);
 
     }
@@ -73,13 +67,11 @@ public class DataLoader implements CommandLineRunner {
         Vet v1 = new Vet();
         v1.setFirstName("Peter");
         v1.setLastName("Griffin");
-        v1.setId(new Long(111));
         vetService.save(v1);
 
         Vet v2 = new Vet();
         v2.setFirstName("Homer");
         v2.setLastName("Simpson");
-        v2.setId(new Long(222));
         vetService.save(v2);
     }
 
