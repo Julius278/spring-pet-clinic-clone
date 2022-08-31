@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<!--head>
   <meta charset="UTF-8">
   <title>Pet Clinic - Index</title>
-</head>
+</head-->
+
 <body>
 
   <h1 th:text="'Pet Clinic - Owners Index Page'">Pet Clinic Index Page</h1>
-  <table>
+  <table class="table table striped">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 150px;">First Name</th>
+        <th style="width: 150px;">Last Name</th>
+        <!-- prepared, that owners can have pets -->
+        <!--th>Pets</th-->
       </tr>
     </thead>
     <tbody>
@@ -20,6 +23,8 @@
         <td th:text="${owner.id}">222222</td>
         <td th:text="${owner.firstName}">John</td>
         <td th:text="${owner.lastName}">Wayne</td>
+        <!-- prepared, that owners can have pets -->
+        <!--td><span th:each="pet : ${owner.pets}" th:text="${pet.name}"/></td-->
       </tr>
     </tbody>
   </table>
