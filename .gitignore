@@ -71,7 +71,8 @@ local.properties
 /target/
 /pet-clinic-data/target/
 /pet-clinic-web/target/
-
+*.releaseBackup
+*_original
 ######################
 # Gradle
 ######################
