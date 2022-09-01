@@ -11,8 +11,6 @@ import com.julius.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
-
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -51,7 +49,6 @@ public class DataLoader implements CommandLineRunner {
         Owner o1 = new Owner();
         o1.setFirstName("Marge");
         o1.setLastName("Simpson");
-        o1.setPets(new HashSet<Pet>());
         o1.setCity("Springfield");
         o1.setAddress("Kwik-E-Mart");
         o1.setTelephone("0013763734...");
@@ -60,7 +57,6 @@ public class DataLoader implements CommandLineRunner {
         Owner o2 = new Owner();
         o2.setFirstName("Hans");
         o2.setLastName("Wurst");
-        o2.setPets(new HashSet<Pet>());
         o2.setCity("Frankfurt");
         o2.setAddress("Europa Allee 6");
         o2.setTelephone("069.....");
@@ -73,6 +69,14 @@ public class DataLoader implements CommandLineRunner {
         p3.setName("Rex");
         o2.getPets().add(p3);
         ownerService.save(o2);
+
+        Owner o3 = new Owner();
+        o3.setFirstName("Mike");
+        o3.setLastName("Krüger");
+        o3.setCity("Ulm");
+        o3.setAddress("Hauptstraße");
+        o3.setTelephone("0049 7304...");
+        ownerService.save(o3);
 
         Pet p1 = new Pet();
         p1.setPetType(pt1);
