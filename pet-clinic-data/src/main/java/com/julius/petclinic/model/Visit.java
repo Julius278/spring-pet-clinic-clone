@@ -32,10 +32,6 @@ public class Visit extends BaseEntity {
         this.pet = pet;
     }
 
-
-
-
-
     @Override
     public String toString(){
         return "[Visit: {"+"id: "+getId() +", description: "+getDescription()+", pet: "+getPet()+", time: "+getDate()+"}]";
