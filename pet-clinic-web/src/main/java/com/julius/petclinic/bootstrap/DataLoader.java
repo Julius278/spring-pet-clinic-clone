@@ -6,9 +6,12 @@ import com.julius.petclinic.model.PetType;
 import com.julius.petclinic.model.Vet;
 import com.julius.petclinic.services.OwnerService;
 import com.julius.petclinic.services.PetService;
+import com.julius.petclinic.services.PetTypeService;
 import com.julius.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.HashSet;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -19,10 +22,13 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
 
-    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService){
+    private final PetTypeService petTypeService;
+
+    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService, PetTypeService petTypeService){
         this.vetService = vetService;
         this.petService = petService;
         this.ownerService = ownerService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -36,29 +42,40 @@ public class DataLoader implements CommandLineRunner {
     private void bootstrapPets(){
         PetType pt1 = new PetType();
         pt1.setName("Streuner");
+        petTypeService.save(pt1);
 
         PetType pt2 = new PetType();
         pt2.setName("Dachs");
-
+        petTypeService.save(pt2);
 
         Owner o1 = new Owner();
         o1.setFirstName("Marge");
         o1.setLastName("Simpson");
+        o1.setPets(new HashSet<Pet>());
+        o1.setCity("Springfield");
+        o1.setAddress("Kwik-E-Mart");
+        o1.setTelephone("0013763734...");
         ownerService.save(o1);
 
         Owner o2 = new Owner();
         o2.setFirstName("Hans");
         o2.setLastName("Wurst");
+        o2.setPets(new HashSet<Pet>());
+        o2.setCity("Frankfurt");
+        o2.setAddress("Europa Allee 6");
+        o2.setTelephone("069.....");
         ownerService.save(o2);
 
         Pet p1 = new Pet();
         p1.setPetType(pt1);
         p1.setOwner(o1);
+        o1.getPets().add(p1);
         petService.save(p1);
 
         Pet p2 = new Pet();
         p2.setPetType(pt2);
         p2.setOwner(o1);
+        o1.getPets().add(p2);
         petService.save(p2);
 
     }
