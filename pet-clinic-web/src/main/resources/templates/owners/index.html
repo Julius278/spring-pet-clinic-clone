@@ -18,7 +18,7 @@
         <th style="width: 150px;">Address</th>
         <th style="width: 150px;">Telephone</th>
         <!-- prepared, that owners can have pets -->
-        <!--th>Pets</th-->
+        <!--th style="width: 150px;">Pets</th-->
       </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
         <td th:text="${owner.address}">Werner-Heisenberg-Allee 25</td>
         <td th:text="${owner.telephone}">0089....</td>
         <!-- prepared, that owners can have pets -->
-        <!--td><span th:each="pet : ${owner.pets}" th:text="${pet.name}"/></td-->
+        <!--td><span th:each="pet : ${owner.pets}" th:text="${pet.id}"/></td-->
       </tr>
     </tbody>
   </table>
