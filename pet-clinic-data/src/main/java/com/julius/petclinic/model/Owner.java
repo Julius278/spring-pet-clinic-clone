@@ -40,4 +40,9 @@ public class Owner extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "[Owner: {"+"id: "+getId() +", firstName: " + getFirstName() +", lastName:" + getLastName()+", pets: "+getPets() +"}]";
+    }
 }
