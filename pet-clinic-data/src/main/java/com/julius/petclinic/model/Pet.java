@@ -4,11 +4,18 @@ import java.time.LocalDate;
 
 public class Pet extends BaseEntity {
 
+	private String name;
 	private PetType petType;
 	private Owner owner;
 	private LocalDate birthDate;
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	public PetType getPetType() {
 		return petType;
 	}
@@ -30,6 +37,7 @@ public class Pet extends BaseEntity {
 
 	@Override
 	public String toString(){
-		return "[Pet: {"+"id: "+getId() +", petType: "+getPetType()+", Birthdate: "+getBirthDate()+"}]";
+		return "[Pet: {"+"id: "+getId()+", name: "+getName() +", petType: "+getPetType()+", Birthdate: "+getBirthDate()+"}]";
 	}
+
 }
