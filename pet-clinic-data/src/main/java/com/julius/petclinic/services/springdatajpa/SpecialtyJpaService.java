@@ -33,8 +33,7 @@ public class SpecialtyJpaService implements SpecialtyService {
         if(optionalSpecialty.isEmpty()){
             return null;
         }
-        Specialty specialty = optionalSpecialty.get();
-        return specialty;
+        return optionalSpecialty.get();
     }
 
     @Override

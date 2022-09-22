@@ -43,8 +43,7 @@ public class OwnerJpaService implements OwnerService {
             //throw new RuntimeException("Could not find Owner by Id");
             return null;
         }
-        Owner owner = optionalOwner.get();
-        return owner;
+        return optionalOwner.get();
     }
 
     @Override

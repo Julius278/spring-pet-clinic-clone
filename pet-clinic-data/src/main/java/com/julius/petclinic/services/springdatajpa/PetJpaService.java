@@ -30,11 +30,10 @@ public class PetJpaService implements PetService {
     @Override
     public Pet findById(Long aLong) {
         Optional<Pet> optionalPet = petRepository.findById(aLong);
-        if(optionalPet.isEmpty()){
+        if(optionalPet.isEmpty()) {
             return null;
         }
-        Pet pet = optionalPet.get();
-        return pet;
+        return optionalPet.get();
     }
 
     @Override
