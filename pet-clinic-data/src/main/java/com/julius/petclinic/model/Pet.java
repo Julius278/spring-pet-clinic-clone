@@ -60,6 +60,10 @@ public class Pet extends BaseEntity {
 		this.visits = visits;
 	}
 
+	public void addVisit(Visit visit) {
+		this.visits.add(visit);
+	}
+
 	@Override
 	public String toString(){
 		return "[Pet: {"+"id: "+getId()+", name: "+getName() +", petType: "+getPetType()+", Birthdate: "+getBirthDate()+"}]";
