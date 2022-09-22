@@ -3,12 +3,12 @@ package com.julius.petclinic.services.springdatajpa;
 import com.julius.petclinic.model.Vet;
 import com.julius.petclinic.repositories.SpecialtyRepository;
 import com.julius.petclinic.repositories.VetRepository;
-import com.julius.petclinic.services.SpecialtyService;
 import com.julius.petclinic.services.VetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -32,7 +32,11 @@ public class VetJpaService implements VetService {
 
     @Override
     public Vet findById(Long aLong) {
-        return null;
+        Optional<Vet> optionalVet = vetRepository.findById(aLong);
+        if(optionalVet.isEmpty()) {
+            return null;
+        }
+        return optionalVet.get();
     }
 
     @Override
