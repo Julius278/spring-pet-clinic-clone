@@ -5,6 +5,8 @@ import com.julius.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -18,12 +20,15 @@ public class DataLoader implements CommandLineRunner {
 
     private final SpecialtyService specialtyService;
 
-    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    private final VisitService visitService;
+
+    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitService visitService) {
         this.vetService = vetService;
         this.petService = petService;
         this.ownerService = ownerService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -82,6 +87,11 @@ public class DataLoader implements CommandLineRunner {
         p1.setOwner(o1);
         p1.setName("Strolch");
         o1.getPets().add(p1);
+
+        Visit v1 = new Visit(LocalDate.now(), "test description 123");
+        visitService.save(v1);
+        p1.addVisit(v1);
+
         petService.save(p1);
 
         Pet p2 = new Pet();
@@ -89,6 +99,15 @@ public class DataLoader implements CommandLineRunner {
         p2.setOwner(o1);
         p2.setName("Honig");
         o1.getPets().add(p2);
+
+        Visit v2 = new Visit(LocalDate.now(), "first test description 234", p2);
+        visitService.save(v2);
+        p2.addVisit(v2);
+
+        Visit v3 = new Visit(LocalDate.now(), "second test description 345", p2);
+        visitService.save(v3);
+        p2.addVisit(v3);
+
         petService.save(p2);
 
     }
@@ -137,6 +156,10 @@ public class DataLoader implements CommandLineRunner {
 
         for (Specialty s:specialtyService.findAll()) {
             System.out.println(s.toString());
+        }
+
+        for( Visit v: visitService.findAll()){
+            System.out.println(v.toString());
         }
     }
 }
