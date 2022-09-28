@@ -48,7 +48,7 @@ public class OwnerJpaService implements OwnerService {
 
     @Override
     public Owner save(Owner object) {
-        if(object != null){
+     /*   if(object != null){
             if(object.getPets() != null){
                 object.getPets().forEach(pet -> {
                     if(pet != null) {
@@ -69,7 +69,8 @@ public class OwnerJpaService implements OwnerService {
             return ownerRepository.save(object);
         } else {
             return null;
-        }
+        }*/
+        return ownerRepository.save(object);
     }
 
     @Override

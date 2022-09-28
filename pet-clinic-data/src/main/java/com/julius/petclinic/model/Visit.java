@@ -28,6 +28,8 @@ public class Visit extends BaseEntity {
         this.pet = pet;
     }
 
+    public Visit(){}
+
     public LocalDate getDate() {
         return date;
     }

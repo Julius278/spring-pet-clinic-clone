@@ -54,6 +54,6 @@ public class Owner extends Person {
 
     @Override
     public String toString() {
-        return "[Owner: {"+"id: "+getId() +", firstName: " + getFirstName() +", lastName:" + getLastName()+", pets: "+getPets() +", city: "+getCity()+", address: "+getAddress()+", telephone: "+getTelephone()+"}]";
+        return "[Owner: {"+"id: "+getId() +", firstName: " + getFirstName() +", lastName:" + getLastName()+", city: "+getCity()+", address: "+getAddress()+", telephone: "+getTelephone()+"}]";
     }
 }
