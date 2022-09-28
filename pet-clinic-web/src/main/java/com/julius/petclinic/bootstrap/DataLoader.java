@@ -89,10 +89,10 @@ public class DataLoader implements CommandLineRunner {
         o1.getPets().add(p1);
 
         Visit v1 = new Visit(LocalDate.now(), "test description 123");
-        visitService.save(v1);
         p1.addVisit(v1);
 
         petService.save(p1);
+        visitService.save(v1);
 
         Pet p2 = new Pet();
         p2.setPetType(pt2);
@@ -101,15 +101,14 @@ public class DataLoader implements CommandLineRunner {
         o1.getPets().add(p2);
 
         Visit v2 = new Visit(LocalDate.now(), "first test description 234", p2);
-        visitService.save(v2);
         p2.addVisit(v2);
 
         Visit v3 = new Visit(LocalDate.now(), "second test description 345", p2);
-        visitService.save(v3);
         p2.addVisit(v3);
 
         petService.save(p2);
-
+        visitService.save(v2);
+        visitService.save(v3);
     }
 
     private void bootstrapVets(){
