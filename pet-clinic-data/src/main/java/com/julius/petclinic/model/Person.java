@@ -1,8 +1,15 @@
 package com.julius.petclinic.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+@Getter
+@Setter
+@EqualsAndHashCode
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -10,19 +17,6 @@ public class Person extends BaseEntity {
 	private String firstName;
 	@Column(name = "last_name")
 	private String lastName;
-
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
 
 	@Override
 	public String toString() {

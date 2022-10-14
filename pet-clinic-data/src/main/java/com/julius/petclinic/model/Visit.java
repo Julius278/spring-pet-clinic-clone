@@ -1,8 +1,17 @@
 package com.julius.petclinic.model;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = {"pet"})
+@AllArgsConstructor
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {
@@ -22,36 +31,10 @@ public class Visit extends BaseEntity {
         this.description = description;
     }
 
-    public Visit(LocalDate date, String description, Pet pet){
-        this.date = date;
-        this.description = description;
-        this.pet = pet;
-    }
-
     public Visit(){}
 
     public LocalDate getDate() {
         return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
     }
 
     @Override
