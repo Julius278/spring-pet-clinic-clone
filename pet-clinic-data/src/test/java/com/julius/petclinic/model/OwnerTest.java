@@ -29,7 +29,7 @@ class OwnerTest {
     void getAddress() {
         String address = "sample street 4";
         owner.setAddress(address);
-
+        //
         assertEquals(owner.getAddress(), address);
     }
 
