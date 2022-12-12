@@ -2,7 +2,6 @@ package com.julius.petclinic.services.map;
 
 import com.julius.petclinic.model.Owner;
 import com.julius.petclinic.model.PetType;
-import com.julius.petclinic.services.CrudService;
 import com.julius.petclinic.services.OwnerService;
 import com.julius.petclinic.services.PetService;
 import com.julius.petclinic.services.PetTypeService;
@@ -73,6 +72,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll().
+                stream().
+                filter(owner -> owner.getLastName().equalsIgnoreCase(lastName)).
+                findFirst().
+                orElse(null);
     }
 }
