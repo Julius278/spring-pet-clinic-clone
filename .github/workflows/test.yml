@@ -1,0 +1,17 @@
+name: petclinic tests
+
+on: [ push ]
+
+jobs:
+  bCP1ld:
+    name: maven test & package with Java 17
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: 17
+      - name: Build with Maven
+        run: mvn -B clean package
